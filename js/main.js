@@ -75,4 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
             $(this).css('background-color', '');
         }
     );
+
+    // Background color transition
+    $(window).scroll(function() {
+        const scroll = $(window).scrollTop();
+        const maxScroll = $(document).height() - $(window).height();
+        const scrollPercent = scroll / maxScroll;
+
+        const startColor = { r: 255, g: 248, b: 220 }; // pastel yellow
+        const endColor = { r: 169, g: 169, b: 169 }; // gray
+
+        const r = Math.floor(startColor.r + (endColor.r - startColor.r) * scrollPercent);
+        const g = Math.floor(startColor.g + (endColor.g - startColor.g) * scrollPercent);
+        const b = Math.floor(startColor.b + (endColor.b - startColor.b) * scrollPercent);
+
+        $('body').css('background-color', `rgb(${r}, ${g}, ${b})`);
+    });
 });
