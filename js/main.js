@@ -49,4 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please fill in all fields.');
         }
     });
+
+    // Navbar animation on scroll
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 50) {
+            $('header').css('background-color', '#ff6600');
+        } else {
+            $('header').css('background-color', '#ffcc00');
+        }
+    });
+
+    // Navbar link hover effect
+    $('nav ul li a').hover(
+        function() {
+            $(this).css('color', '#ff6600');
+        }, function() {
+            $(this).css('color', '#333');
+        }
+    );
 });
