@@ -50,21 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Navbar animation on scroll
+    // Navbar color change on scroll
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 50) {
-            $('header').css('background-color', '#ff6600');
-        } else {
-            $('header').css('background-color', '#ffcc00');
-        }
+        const scroll = $(window).scrollTop();
+        const maxScroll = $(document).height() - $(window).height();
+        const scrollPercent = scroll / maxScroll;
+        const colorValue = Math.min(255, Math.floor(scrollPercent * 255));
+        $('header').css('background-color', `rgb(255, ${255 - colorValue}, 0)`);
     });
 
-    // Navbar link hover effect
-    $('nav ul li a').hover(
+    // Advanced styling for the events list
+    $('#events ul li').each(function(index) {
+        $(this).css('opacity', 0);
+        $(this).delay(index * 200).animate({ opacity: 1 }, 1000);
+    });
+
+    $('#events ul li').hover(
         function() {
-            $(this).css('color', '#ff6600');
-        }, function() {
-            $(this).css('color', '#333');
+            $(this).css('transform', 'scale(1.1)');
+            $(this).css('background-color', '#ffcc00');
+        },
+        function() {
+            $(this).css('transform', 'scale(1)');
+            $(this).css('background-color', '');
         }
     );
 });
