@@ -52,8 +52,24 @@ nav ul li a:hover {
 }
 
 main {
-    padding: 20px;
     text-align: center;
+}
+
+.section {
+    padding: 60px 20px;
+}
+
+.section:nth-child(even) {
+    background-color: #e6f7ff;
+}
+
+.section:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 footer {
@@ -62,22 +78,6 @@ footer {
     padding: 10px 0;
 }
 
-#welcome {
-    padding: 50px 0;
-    background: url('images/hero.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-#welcome h1 {
-    font-size: 3em;
-}
-
-#welcome p {
-    font-size: 1.5em;
-}
-
-/* Slider styles */
 .slider {
     position: relative;
     width: 80%;
@@ -118,4 +118,33 @@ footer {
     padding: 10px;
     cursor: pointer;
     border-radius: 50%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input, form textarea, form button {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #ffcc00;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ff6600;
 }

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlider();
     }, 3000);
 
-    // jQuery example to add smooth scroll for navigation links
+    // jQuery for smooth scroll for navigation links
     $('nav ul li a').on('click', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
@@ -32,6 +32,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 800, function(){
                 window.location.hash = hash;
             });
+        }
+    });
+
+    // jQuery for form validation
+    $('#contactForm').on('submit', function(event) {
+        event.preventDefault();
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const message = $('#message').val().trim();
+
+        if (name && email && message) {
+            alert('Thank you for your message!');
+            this.reset();
+        } else {
+            alert('Please fill in all fields.');
         }
     });
 });
