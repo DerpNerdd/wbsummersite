@@ -306,6 +306,7 @@ body.starry-sky #stars .star {
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .text-wrapper::before {
@@ -326,6 +327,8 @@ body.starry-sky #stars .star {
     animation: wave 2s infinite linear;
     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
     -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
 }
 
