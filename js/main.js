@@ -130,4 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     $('#stars').hide(); // Hide stars initially
+
+    const rainbowText = document.querySelector('.rainbow-wave');
+    const text = rainbowText.textContent;
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    rainbowText.innerHTML = text.split('').map((char, index) => {
+        const color = char === ' ' ? 'transparent' : colors[index % colors.length];
+        return `<span style="--i:${index + 1}; color:${color}">${char === ' ' ? '&nbsp;' : char}</span>`;
+    }).join('');
 });
