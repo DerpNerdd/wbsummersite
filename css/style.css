@@ -114,7 +114,6 @@ nav ul li a:hover {
     left: 15px;
 }
 
-
 main {
     text-align: center;
 }
@@ -317,4 +316,30 @@ body.starry-sky #stars .star {
     right: 0;
     bottom: 0;
     z-index: -1;
+}
+
+/* Rainbow wave text */
+.rainbow-wave {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    animation: wave 2s infinite linear;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.rainbow-wave span {
+    display: inline-block;
+    animation: wave 2s infinite linear;
+    animation-delay: calc(0.1s * var(--i));
 }
