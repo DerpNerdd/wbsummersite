@@ -288,3 +288,33 @@ form button:hover {
 body.starry-sky #stars .star {
     opacity: 1;
 }
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.text-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.text {
+    font-size: 72px;
+    font-weight: bold;
+    color: transparent;
+    background: url('/images/summersky.png') no-repeat center center;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.text-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
