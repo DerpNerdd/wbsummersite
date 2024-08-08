@@ -138,4 +138,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const color = char === ' ' ? 'transparent' : colors[index % colors.length];
         return `<span style="--i:${index + 1}; color:${color}">${char === ' ' ? '&nbsp;' : char}</span>`;
     }).join('');
+
+    const glowingText = document.querySelector('.glowing-text');
+    setInterval(() => {
+        glowingText.style.textShadow = '0 0 20px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6), 0 0 40px rgba(255, 255, 0, 0.4), 0 0 50px rgba(255, 255, 0, 0.2), 0 0 60px rgba(255, 255, 0, 0.1)';
+        setTimeout(() => {
+            glowingText.style.textShadow = '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4), 0 0 40px rgba(255, 255, 0, 0.2), 0 0 50px rgba(255, 255, 0, 0.1)';
+        }, 1000); // Adjust the duration of the bright glow
+    }, 3000); // Adjust the interval between glowing effects
 });

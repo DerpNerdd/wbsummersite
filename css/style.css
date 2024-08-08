@@ -90,14 +90,14 @@ nav ul li a:hover {
 
 #moon {
     position: absolute;
-    top: 2280px; /* Positioned lower on the page */
+    top: 2500px; /* Positioned lower on the page */
     left: 50%;
     transform: translateX(-50%);
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 280px rgba(135, 135, 135, 0.3);
+    box-shadow: 0 0 20px rgba(135, 135, 135, 0.3);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -106,8 +106,8 @@ nav ul li a:hover {
 #moon::before {
     content: '';
     position: absolute;
-    width: 470px;
-    height: 470px;
+    width: 570px;
+    height: 570px;
     background: #f0f8ff;
     border-radius: 50%;
     top: 10px;
@@ -119,7 +119,7 @@ main {
 }
 
 .section {
-    padding: 50px 20px;
+    padding: 60px 20px;
     background-color: transparent;
 }
 
@@ -355,5 +355,27 @@ body.starry-sky #stars .star {
                  0 0 30px rgba(255, 255, 0, 0.4), 
                  0 0 40px rgba(255, 255, 0, 0.2), 
                  0 0 50px rgba(255, 255, 0, 0.1);
-    font-size: 40px;
+    transition: text-shadow 1s ease-in-out;
+    font-size: 50px;
+}
+
+#about .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#about .text-container {
+    flex: 1;
+    text-align: left;
+}
+
+#about .image-container {
+    flex: 1;
+    text-align: right;
+}
+
+#about img {
+    max-width: 100%;
+    border-radius: 10px;
 }
