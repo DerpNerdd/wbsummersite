@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         currentIndex = (currentIndex + 1) % slideArray.length;
         updateSlider();
-    }, 3000);
+    }, 10000);
 
-    // jQuery for smooth scroll for navigation links
+    
     $('nav ul li a').on('click', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // jQuery for form validation
+    
     $('#contactForm').on('submit', function(event) {
         event.preventDefault();
         const name = $('#name').val().trim();
@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Navbar color change on scroll
+    
     $(window).scroll(function() {
         const scroll = $(window).scrollTop();
         const maxScroll = $(document).height() - $(window).height();
         const scrollPercent = scroll / maxScroll;
-        const navbarStartColor = { r: 173, g: 216, b: 230 }; // light blue
-        const navbarEndColor = { r: 64, g: 64, b: 64 }; // dark gray
+        const navbarStartColor = { r: 173, g: 216, b: 230 }; 
+        const navbarEndColor = { r: 64, g: 64, b: 64 }; 
 
         const navbarR = Math.floor(navbarStartColor.r + (navbarEndColor.r - navbarStartColor.r) * scrollPercent);
         const navbarG = Math.floor(navbarStartColor.g + (navbarEndColor.g - navbarStartColor.g) * scrollPercent);
@@ -64,16 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         $('header').css('background-color', `rgb(${navbarR}, ${navbarG}, ${navbarB})`);
 
-        // Change navbar text color
+        
         if (scrollPercent > 0.8) {
             $('nav ul li a').css('color', '#fff');
         } else {
             $('nav ul li a').css('color', '#333');
         }
 
-        // Background color transition
-        const startColor = { r: 173, g: 216, b: 230 }; // sky blue
-        const endColor = { r: 64, g: 64, b: 64 }; // dark gray
+        
+        const startColor = { r: 173, g: 216, b: 230 }; 
+        const endColor = { r: 64, g: 64, b: 64 }; 
 
         const r = Math.floor(startColor.r + (endColor.r - startColor.r) * scrollPercent);
         const g = Math.floor(startColor.g + (endColor.g - startColor.g) * scrollPercent);
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         $('body').css('background-color', `rgb(${r}, ${g}, ${b})`);
 
-        // Starry sky effect
+        
         if (scrollPercent > 0.8) {
             $('body').addClass('starry-sky');
             $('#stars').fadeIn();
@@ -90,16 +90,16 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#stars').fadeOut();
         }
 
-        // Sun fade effect
+        
         const sunOpacity = 1 - scrollPercent;
         $('#sun').css('opacity', sunOpacity);
 
-        // Moon fade effect
+        
         const moonOpacity = Math.min(1, Math.max(0, (scrollPercent - 0.2) * 5));
         $('#moon').css('opacity', moonOpacity);
     });
 
-    // Advanced styling for the events list
+    
     $('#events ul li').each(function(index) {
         $(this).css('opacity', 0);
         $(this).delay(index * 200).animate({ opacity: 1 }, 1000);
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
-    // Create stars
+    
     const starContainer = document.createElement('div');
     starContainer.id = 'stars';
     document.body.appendChild(starContainer);
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         starContainer.appendChild(star);
     }
 
-    $('#stars').hide(); // Hide stars initially
+    $('#stars').hide(); 
 
     const rainbowText = document.querySelector('.rainbow-wave');
     const text = rainbowText.textContent;
@@ -144,6 +144,56 @@ document.addEventListener('DOMContentLoaded', () => {
         glowingText.style.textShadow = '0 0 20px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6), 0 0 40px rgba(255, 255, 0, 0.4), 0 0 50px rgba(255, 255, 0, 0.2), 0 0 60px rgba(255, 255, 0, 0.1)';
         setTimeout(() => {
             glowingText.style.textShadow = '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4), 0 0 40px rgba(255, 255, 0, 0.2), 0 0 50px rgba(255, 255, 0, 0.1)';
-        }, 1000); // Adjust the duration of the bright glow
-    }, 3000); // Adjust the interval between glowing effects
+        }, 1000); 
+    }, 3000); 
+
+    const galleryHeading = document.querySelector('#gallery-heading');
+    galleryHeading.innerHTML = galleryHeading.textContent.split('').map((letter, index) => {
+        return `<span style="--i: ${index};">${letter}</span>`;
+    }).join('');
+
+    $('#events ul li').each(function(index) {
+        $(this).css('opacity', 0);
+        $(this).delay(index * 200).animate({ opacity: 1 }, 1000);
+    });
+
+    $('#events ul li').hover(
+        function() {
+            $(this).css('transform', 'scale(1.1)');
+            $(this).css('background-color', '#80e1ff');
+        },
+        function() {
+            $(this).css('transform', 'scale(1)');
+            $(this).css('background-color', '');
+        }
+    );
+
+    const cloudImages = [
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+        'cloud.png',
+
+    ];
+
+    const cloudContainer = document.querySelector('#home .content');
+
+    cloudImages.forEach((src, index) => {
+        const cloud = document.createElement('img');
+        cloud.src = `images/${src}`;
+        cloud.classList.add('cloud');
+        cloud.style.top = `${Math.random() * 50 + 5}%`; 
+        cloud.style.left = `${Math.random() * 60 + 15}%`; 
+        cloud.style.width = `${Math.random() * 30 + 10}vw`; 
+        cloudContainer.appendChild(cloud);
+    });
+
 });

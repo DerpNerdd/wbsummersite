@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(173, 216, 230); /* Initial sky blue color */
+    background-color: rgb(173, 216, 230);
     color: #333;
     transition: background-color 0.5s ease;
 }
@@ -14,7 +14,7 @@ header {
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    background-color: rgb(173, 216, 230); /* Initial light blue color */
+    background-color: rgb(173, 216, 230); 
 }
 
 nav {
@@ -65,7 +65,7 @@ nav ul li a:hover {
     height: 300px;
     background: radial-gradient(circle, #fde353, #ffe167);
     border-radius: 50%;
-    filter: blur(50px); /* Apply blur to the sun itself */
+    filter: blur(50px);
     z-index: -1;
     opacity: 1;
     transition: opacity 0.5s ease;
@@ -90,7 +90,7 @@ nav ul li a:hover {
 
 #moon {
     position: absolute;
-    top: 2500px; /* Positioned lower on the page */
+    top: 3030px; 
     left: 50%;
     transform: translateX(-50%);
     width: 600px;
@@ -177,13 +177,13 @@ footer {
 
 .slide {
     min-width: 100%;
-    height: 500px; /* Fixed height for all slides */
+    height: 500px; 
 }
 
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures images cover the slide area without distortion */
+    object-fit: cover; 
 }
 
 .navigation {
@@ -245,12 +245,80 @@ form button:hover {
     background-color: #ff6600;
 }
 
-#events ul li {
-    margin: 10px 0;
-    transition: transform 0.3s, background-color 0.3s;
+#events ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Starry sky effect */
+#events ul li {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 5px solid #ffcc00;
+    margin: 20px 0;
+    padding: 20px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+#events ul li i {
+    margin-right: 15px;
+    color: #ffcc00;
+    transition: transform 0.3s;
+}
+
+#events ul li:hover {
+    transform: scale(1.05);
+    background-color: #80e1ff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#events ul li:hover i {
+    transform: rotate(360deg);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#events ul li {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+#events ul li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+#events ul li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+#events ul li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+#events ul li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+#events ul li:nth-child(5) {
+    animation-delay: 1s;
+}
+#events ul li:nth-child(6) {
+    animation-delay: 1.2s;
+}
+#events ul li:nth-child(7) {
+    animation-delay: 1.4s;
+}
+
 #stars {
     position: fixed;
     top: 0;
@@ -318,13 +386,14 @@ body.starry-sky #stars .star {
     z-index: -1;
 }
 
-/* Rainbow wave text */
 .rainbow-wave {
     display: inline-block;
-    font-size: 24px;
+    font-size: 48px;
     font-weight: bold;
     position: relative;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-bottom: 20px; 
 }
 
 .rainbow-wave span {
@@ -345,9 +414,9 @@ body.starry-sky #stars .star {
     display: inline-block;
     animation: wave 2s infinite ease-in-out;
     animation-delay: calc(0.1s * var(--i));
+    color: rgb(4, 0, 255); 
 }
 
-/* Glowing text effect for "About this website" */
 .glowing-text {
     color: #ff0;
     text-shadow: 0 0 10px rgba(255, 255, 0, 0.8), 
@@ -357,6 +426,17 @@ body.starry-sky #stars .star {
                  0 0 50px rgba(255, 255, 0, 0.1);
     transition: text-shadow 1s ease-in-out;
     font-size: 50px;
+}
+
+.glowing-text-2 {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(116, 116, 116, 0.6), 
+                 0 0 30px rgba(138, 138, 138, 0.4), 
+                 0 0 40px rgba(123, 123, 123, 0.2), 
+                 0 0 50px rgba(255, 255, 0, 0.1);
+    transition: text-shadow 1s ease-in-out;
+    font-size: 25px;
 }
 
 #about .content {
@@ -373,9 +453,57 @@ body.starry-sky #stars .star {
 #about .image-container {
     flex: 1;
     text-align: right;
+    padding-left: 20px;
 }
 
 #about img {
     max-width: 100%;
     border-radius: 10px;
+}
+
+.cloud {
+    position: absolute;
+    opacity: 0.5; 
+    z-index: -1;
+    animation: floatCloud 20s infinite ease-in-out; 
+    pointer-events: none; 
+}
+
+@keyframes floatCloud {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#home .content {
+    position: relative; 
+    z-index: 1; 
+}
+
+.caption {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #333; 
+    margin-top: 10px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute; 
+    bottom: 10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; 
+}
+
+.slide {
+    position: relative; 
+}
+
+.slide:hover .caption {
+    background-color: #ffcc00; 
 }
